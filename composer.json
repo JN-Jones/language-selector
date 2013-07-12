@@ -1,0 +1,21 @@
+{
+    "name": "jones/language-selector",
+    "description": "",
+    "authors": [
+        {
+            "name": "Jones",
+            "email": "admin@jonesboard.de"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x",
+		"mews/useragent": "dev-master",
+    },
+    "autoload": {
+        "psr-0": {
+            "Jones\\LanguageSelector": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
