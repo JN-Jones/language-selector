@@ -34,7 +34,6 @@ Add the provider to your `app/config/app.php`:
 'providers' => array(
 
     ...
-	'Mews\Useragent\UseragentServiceProvider',
     'Jones\LanguageSelector\LanguageSelectorServiceProvider',
 
 ),

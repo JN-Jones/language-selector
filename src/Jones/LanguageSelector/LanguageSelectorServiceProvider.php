@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
 
 class LanguageSelectorServiceProvider extends ServiceProvider {
@@ -79,8 +80,15 @@ class LanguageSelectorServiceProvider extends ServiceProvider {
 			//We hadn't a user? Ok check for the "Accept-Language" Header
 			if($locale === false)
 			{
-				//The Useragent Class does the hard work
-				$langs = Useragent::languages();
+				$langs = array();
+
+				//Fetch the languages
+       			if (Request::server('HTTP_ACCEPT_LANGUAGE') && Request::server('HTTP_ACCEPT_LANGUAGE') != '')
+				{
+					$langs = preg_replace('/(;q=[0-9\.]+)/i', '', strtolower(trim(Request::server('HTTP_ACCEPT_LANGUAGE'))));
+		
+					$langs = explode(',', $langs);
+				}
 
 				//We only need to loop through the languages
 				foreach ($langs as $lang)
