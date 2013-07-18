@@ -1,7 +1,6 @@
 <?php namespace Jones\LanguageSelector;
 
 use Illuminate\Support\ServiceProvider;
-use Mews\Useragent\Facades\Useragent;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
